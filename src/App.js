@@ -92,12 +92,19 @@ class App extends Component {
       <div className="App">
         {
           this.state.ready
-            ? <button
-              onMouseDown={this.connect}
-              onMouseUp={this.disconnect}
-            >
-              Press to Talk
-            </button>
+            ?
+            <div>
+              <button
+                onClick={this.connect}
+              >
+                Connect
+              </button>
+              <button
+                onClick={this.disconnect}
+              >
+                Disconnect
+              </button>
+            </div>
             : <div>
               <p>Enter your name to begin.</p>
               <form onSubmit={this.setup}>
