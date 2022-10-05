@@ -14,6 +14,7 @@ class App extends Component {
     }
 
     this.onChangeUpdateState = this.onChangeUpdateState.bind(this);
+    this.setup = this.setup.bind(this);
     this.connect = this.connect.bind(this);
     this.disconnect = this.disconnect.bind(this);
   }
@@ -39,6 +40,9 @@ class App extends Component {
         status: "device ready",
         ready: true
       });
+      this.setState({
+        device: device
+      });
     });
 
     device.on('connect', connection => {
@@ -54,7 +58,7 @@ class App extends Component {
     });
   }
 
-  setup = (event) => {
+  setup(event) {
     // prevents form submission and page refresh
     event.preventDefault();
     fetch(`https://walkie-talkie-service-5935-dev.twil.io/token?identity=${this.state.identity}`)
@@ -66,8 +70,6 @@ class App extends Component {
         this.state.device.audio.disconnect(false);
       })
       .catch(err => console.log(err))
-    const recipient = this.state.identity === 'friend1' ? 'friend2' : 'friend1';
-    this.state.device.connect({ recipient: recipient });
   }
 
   onChangeUpdateState(event) {
@@ -76,12 +78,23 @@ class App extends Component {
     });
   }
 
+  connect() {
+    const recipient = this.state.identity === 'friend1' ? 'friend2' : 'friend1';
+    this.state.device.connect({ recipient: recipient });
+  }
+
+  disconnect() {
+    this.state.device.disconnectAll()
+  }
+
   render() {
     return (
       <div className="App">
         {
           this.state.ready
             ? <button
+              onMouseDown={this.connect}
+              onMouseUp={this.disconnect}
             >
               Press to Talk
             </button>
