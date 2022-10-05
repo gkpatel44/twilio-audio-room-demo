@@ -67,6 +67,8 @@ class App extends Component {
         this.state.device.audio.disconnect(false);
       })
       .catch(err => console.log(err))
+    const recipient = this.state.identity === 'friend1' ? 'friend2' : 'friend1';
+    this.state.device.connect({ recipient: recipient });
   }
 
   onChangeUpdateState(event) {
@@ -75,23 +77,12 @@ class App extends Component {
     });
   }
 
-  connect() {
-    const recipient = this.state.identity === 'friend1' ? 'friend2' : 'friend1';
-    this.state.device.connect({ recipient: recipient });
-  }
-
-  disconnect() {
-    this.state.device.disconnectAll()
-  }
-
   render() {
     return (
       <div className="App">
         {
           this.state.ready
             ? <button
-              onMouseDown={this.connect}
-              onMouseUp={this.disconnect}
             >
               Press to Talk
             </button>
