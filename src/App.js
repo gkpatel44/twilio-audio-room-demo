@@ -14,7 +14,6 @@ class App extends Component {
     }
 
     this.onChangeUpdateState = this.onChangeUpdateState.bind(this);
-    this.setup = this.setup.bind(this);
     this.connect = this.connect.bind(this);
     this.disconnect = this.disconnect.bind(this);
   }
@@ -55,7 +54,7 @@ class App extends Component {
     });
   }
 
-  setup(event) {
+  setup = (event) => {
     // prevents form submission and page refresh
     event.preventDefault();
     fetch(`https://walkie-talkie-service-5935-dev.twil.io/token?identity=${this.state.identity}`)
