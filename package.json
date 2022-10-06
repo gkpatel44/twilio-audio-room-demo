@@ -1,22 +1,21 @@
 {
-  "name": "walkie-talkie-frontend",
+  "name": "hms-spaces",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "twilio-client": "^1.14.0",
-    "util": "^0.12.4",
-    "web-vitals": "^2.1.4"
+    "@100mslive/hms-video": "^0.0.148",
+    "@100mslive/hms-video-react": "^0.3.32",
+    "@craco/craco": "^6.2.0",
+    "boring-avatars": "^1.5.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "iconv-lite": "^0.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -36,5 +35,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  },
+    "resolutions": {
+    "iconv-lite": "^0.6.3"
   }
 }
