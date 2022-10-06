@@ -1,22 +1,12 @@
-import {
-  HMSRoomProvider,
-  useHMSStore,
-  selectIsConnectedToRoom,
-} from '@100mslive/hms-video-react';
-import Join from './components/Join';
-import Room from './components/Room';
+import { HMSRoomProvider } from '@100mslive/hms-video-react';
 import './App.css';
-
-const SpacesApp = () => {
-  const isConnected = useHMSStore(selectIsConnectedToRoom);
-  return <>{isConnected ? <Room /> : <Join />}</>;
-};
+import Home from './Home';
 
 function App() {
   return (
     <HMSRoomProvider>
       <div className='page'>
-        <SpacesApp />
+        <Home />
       </div>
     </HMSRoomProvider>
   );
