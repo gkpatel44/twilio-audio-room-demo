@@ -13,6 +13,7 @@ const Home = () => {
 
     useEffect(() => {
         joinRoom()
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const joinRoom = () => {
@@ -31,6 +32,8 @@ const Home = () => {
                 console.log('Token API Error', error);
             });
     };
+
+
     return (
         <>
             {
