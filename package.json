@@ -41,7 +41,7 @@
     "postcss": "^7",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
-    "resolutions": {
+  "resolutions": {
     "iconv-lite": "^0.6.3"
   }
 }
